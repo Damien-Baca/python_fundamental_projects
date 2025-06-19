@@ -1,4 +1,4 @@
-# Projects
+# Python Fundamental Projects
 
 ## Dice Rolling Game
 ### The Goal
