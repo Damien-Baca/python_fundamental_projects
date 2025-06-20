@@ -44,3 +44,22 @@ Too low!
 Guess the number between 1 and 100: 8
 Congratulations! You guessed the number.
 ```
+
+### Pseudo-code
+```python
+    # Generate random target number
+    # Loop
+        # Display prompt and get the user's guess
+
+        # Check that it is a valid number
+            # If not display error and continue
+
+        # If the guess was correct
+            # Congratulate and exit loop
+
+        # If guess is greater than target
+            # Tell the user their guess was too high.
+        
+        # If guess is less than target
+            # Tell the user theri guess was too low.
+```
