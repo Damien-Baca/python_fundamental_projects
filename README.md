@@ -136,4 +136,7 @@ Continue? (y/n): n
 ## Tic-Tac-Toe Game
 
 ### Prompt
-The goal for this project is to implement a game of Tic-Tac-Toe using the pygame library.
+The goal for this project is to implement a game of Tic-Tac-Toe using the pygame library. Unlike the previous game tic-tac-toe should be implemented away from the command line as a 2D graphical application. The game should allow a multiplayer game. That is, two users (X's and O'x) should be able to take turns on one machine to play a game of Tic-Tac-Toe ending in either a victory for one of the players or a Tie. The game should also allow for the user to continue playing after each game and keep a running score between player 1 and player 2 until the user decides to start a brand new game.
+
+As an additional challenge:
+- Include a single-player mode that implements a rudimentary AI for the player to play against rather than another human player.
