@@ -2,6 +2,8 @@ import sys
 import pygame
 from pygame.locals import *
 
+import game_state_manager
+
 # Initialize game assets
 # Initialize game window
 pygame.init()
@@ -24,18 +26,18 @@ def main():
     while True:
 
         # Check and process user input
+        # Includes controls for main menu and gameplay based on state
+        # Includes option to quit playing by exiting the game loop.
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
 
-            # Includes controls for main menu and gameplay based on state
-            # Includes option to quit playing by exiting the game loop.
-
             # Update game state based on game logic and user input
-            # This should keep and update state information about the game like:
-            # Current game state. Main Menu, Single Player, Multiplayer Mode, which players turn.
-            # Checking for the victory condition
+                # This should keep and update state information about the game like:
+                # Current game state. Main Menu, Single Player, Multiplayer Mode, which players turn.
+                # Checking for the victory condition
+            game_state_manager.update()
 
             # Draw / Render based off game state
 
