@@ -12,6 +12,8 @@
     - [Prompt](#prompt-2)
     - [Sample Output](#sample-output-2)
     - [Pseudo-code](#pseudo-code-1)
+  - [Tic-Tac-Toe Game](#tic-tac-toe-game)
+    - [Prompt](#prompt-3)
 
 ---
 ## Dice Rolling Game
@@ -130,3 +132,8 @@ Continue? (y/n): n
         # If user does not wish to continue
             # exit loop
 ```
+
+## Tic-Tac-Toe Game
+
+### Prompt
+The goal for this project is to implement a game of Tic-Tac-Toe using the pygame library.
