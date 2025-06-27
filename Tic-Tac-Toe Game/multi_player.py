@@ -1,9 +1,10 @@
-from state import State
 
-
-class MultiPlayer(State):
+class MultiPlayer:
     def __init__(self):
-        State.__init__(self)
+        self.done = False
+        self.next = None
+        self.quit = False
+        self.previous = None
 
     def startup(self):
         print('MultiPlayer - startup')

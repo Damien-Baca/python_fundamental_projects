@@ -1,11 +1,13 @@
-from state import State
 
 WHITE = (255, 255, 255)
 
 
-class Menu(State):
+class Menu:
     def __init__(self):
-        State.__init__(self)
+        self.done = False
+        self.next = None
+        self.quit = False
+        self.previous = None
 
     def startup(self):
         print('Menu - startup')
