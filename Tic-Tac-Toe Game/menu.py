@@ -19,7 +19,6 @@ class Menu(object):
         self.backgroundColor = colors.WHITE
 
     def startup(self, data=None):
-        print("Menu - startup")
         # Title
         titleText = "Tic-Tac-Toe"
         titleFont = pyg.font.SysFont("Arial", 75)

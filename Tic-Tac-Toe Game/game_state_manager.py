@@ -1,5 +1,3 @@
-# System imports
-from sys import exit
 # Third party imports
 import pygame as pyg
 from pygame.locals import QUIT

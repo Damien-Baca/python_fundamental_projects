@@ -1,6 +1,9 @@
+# System imports
+from sys import exit
 # Third party imports
 import pygame as pyg
 # Local imports
+import components.error as error
 import components.colors as colors
 from components.button import TextButton
 from components.typing import ButtonColors
@@ -89,8 +92,9 @@ class SinglePlayer(object):
         })
 
     def startup(self, data=None):
-        if data is not CHOICE_O or data is not CHOICE_X:
-            pass  # EXIT with error
+        if data is not CHOICE_O and data is not CHOICE_X:
+            error.log_error(f"Player piece choice is '{data}'. Exiting.")
+            exit()
         self.playPieceChoice = data
         self.buttons += setup_board_buttons(
             self.buttonColors,

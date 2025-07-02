@@ -20,22 +20,21 @@ class TextButton(object):
         self.onClickFunction = onClickFunction
         self.fillColors = fillColors
         self.buttonText = buttonText
+
         centerx = self.x - self.width / 2
         centery = self.y - self.height / 2
-        self.buttonSurface = pyg.Surface(
-            (self.width, self.height), pyg.SRCALPHA)
-        self.buttonRect = pyg.Rect(centerx, centery, self.width, self.height)
+        buttonSize = (self.width, self.height)
+        self.buttonSurface = pyg.Surface(buttonSize, pyg.SRCALPHA)
+        self.buttonRect = pyg.Rect(centerx, centery, *buttonSize)
 
         if font is not None:
             self.buttonText = font.render(buttonText, True, (20, 20, 20))
 
-    def process(self, screen):
+    def process(self, screen: pyg.Surface) -> None:
         mouse_pos = pyg.mouse.get_pos()
         self.buttonSurface.fill(self.fillColors["normal"])
-
         if self.buttonRect.collidepoint(mouse_pos):
             self.buttonSurface.fill(self.fillColors["hover"])
-
             mouse_btn_state = pyg.mouse.get_pressed()
             if mouse_btn_state[LEFT_CLICK]:
                 if not TextButton.alreadyClicked:
@@ -46,9 +45,13 @@ class TextButton(object):
                 TextButton.alreadyClicked = False
 
         if self.buttonText is not None:
+            buttonRectWidth = self.buttonRect.width
+            buttonRectHeight = self.buttonRect.height
+            buttonTextWidth = self.buttonText.get_rect().width
+            buttonTextHeight = self.buttonText.get_rect().height
             self.buttonSurface.blit(self.buttonText, [
-                self.buttonRect.width/2 - self.buttonText.get_rect().width/2,
-                self.buttonRect.height/2 - self.buttonText.get_rect().height/2
+                buttonRectWidth/2 - buttonTextWidth/2,
+                buttonRectHeight/2 - buttonTextHeight/2
             ])
         screen.blit(self.buttonSurface, self.buttonRect)
 
