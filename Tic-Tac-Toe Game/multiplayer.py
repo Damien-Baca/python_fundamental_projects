@@ -2,7 +2,6 @@ from sys import exit
 
 import pygame as pyg
 
-import components.error as error
 import components.colors as colors
 from components.button import TextButton
 from components.utils import create_text
@@ -87,7 +86,6 @@ class Multiplayer(object):
 
         self.gameBoard = GB(p1Piece)
         self.gameBoard.startup()
-
         self.p1Piece = p1Piece
         self.p2Piece = GB.CHOICE_O if p1Piece is GB.CHOICE_X else GB.CHOICE_X
         scoreFont = pyg.font.SysFont("Arial", 20)
@@ -109,7 +107,6 @@ class Multiplayer(object):
         self.gameBoard.update()
         self.update_score()
         self.gameBoard.check_win()
-
         self.draw(screen)
 
     def draw(self, screen):

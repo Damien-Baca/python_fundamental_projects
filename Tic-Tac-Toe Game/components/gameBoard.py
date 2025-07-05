@@ -1,5 +1,3 @@
-from collections.abc import Callable
-
 import pygame as pyg
 
 from .typing import ButtonColors
@@ -47,6 +45,7 @@ class GameBoard(object):
         self.boardButtons.append(TextButton(*args))
 
     def update(self):
+        """Updates the Tic-Tac-Toe board."""
         for i, move in enumerate(self.boardState):
             self.boardButtons[i].buttonText = move
             if move is self.CHOICE_O:
@@ -55,7 +54,7 @@ class GameBoard(object):
                 self.boardButtons[i].textColor = BLACK
 
     def draw(self, screen: pyg.Surface) -> None:
-        """Draws the Tic-Tac-Toe board"""
+        """Draws the Tic-Tac-Toe board."""
         pyg.draw.line(screen, self.GameBoardColor, (200, 75), (200, 375), 5)
         pyg.draw.line(screen, self.GameBoardColor, (300, 75), (300, 375), 5)
         pyg.draw.line(screen, self.GameBoardColor, (100, 175), (400, 175), 5)
@@ -64,7 +63,8 @@ class GameBoard(object):
         for button in self.boardButtons:
             button.process(screen)
 
-    def check_win(self):
+    def check_win(self) -> str | None:
+        """Checks to see if a player has won. If that's the case, returns winning piece."""
         pass
 
     def place_piece_init(self, move: int):
