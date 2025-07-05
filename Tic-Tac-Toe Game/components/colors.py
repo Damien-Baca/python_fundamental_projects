@@ -1,6 +1,7 @@
 WHITE = "#FFFFFF"
 BLACK = "#111111"
 RED = "#ff1111"
+GREEN = "#00BB0C"
 
 DEFAULT_BUTTON = {
     "normal": "#ffffff",

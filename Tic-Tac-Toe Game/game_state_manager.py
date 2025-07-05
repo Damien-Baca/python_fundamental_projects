@@ -3,7 +3,8 @@ import pygame as pyg
 from pygame.locals import QUIT
 # Local imports
 from menu import Menu
-from singleplayer import SinglePlayerChoice as SPC, SinglePlayer as SP
+# from singleplayer import SinglePlayerChoice as SPC, SinglePlayer as SP
+from multiplayer import MultiPlayerChoice as MPC, Multiplayer as MP
 
 
 class GameStateManager:
@@ -16,8 +17,10 @@ class GameStateManager:
 
     STATES = {
         Menu.state: Menu(),
-        SP.state: SP(),
-        SPC.state: SPC()
+        MPC.state: MPC(),
+        MP.state: MP(),
+        # SP.state: SP(),
+        # SPC.state: SPC()
     }
 
     def __init__(self):

@@ -3,7 +3,8 @@ import pygame as pyg
 # Local imports
 from components import utils, colors
 from components.button import TextButton
-from singleplayer import SinglePlayerChoice as SPC
+# from singleplayer import SinglePlayerChoice as SPC
+from multiplayer import MultiPlayerChoice as MPC
 
 
 class Menu(object):
@@ -25,16 +26,16 @@ class Menu(object):
         self.titleArgs = [titleText, titleFont, 250, 75]
         # Gamemode buttons
         buttonFont = pyg.font.SysFont("Arial", 30)
-        singlePlayerArgs = [
-            250, 200, 200, 100, self.to_singleplayer,
-            colors.DEFAULT_BUTTON, 'SinglePlayer', buttonFont
-        ]
-        self.buttons.append(TextButton(*singlePlayerArgs))
-        # args = [
-        #     250, 325, 200, 100, self.to_multiplayer,
-        #     colors.DEFAULT_BUTTON, 'MultiPlayer', buttonFont
+        # singlePlayerArgs = [
+        #     250, 200, 200, 100, self.to_singleplayer,
+        #     colors.DEFAULT_BUTTON, 'SinglePlayer', buttonFont
         # ]
-        # self.buttons.append(TextButton(*args))
+        # self.buttons.append(TextButton(*singlePlayerArgs))
+        multiPlayerArgs = [
+            250, 325, 200, 100, self.to_multiplayer, colors.DEFAULT_BUTTON,
+            colors.BLACK, 'MultiPlayer', buttonFont
+        ]
+        self.buttons.append(TextButton(*multiPlayerArgs))
 
     def cleanup(self):
         pass
@@ -54,10 +55,12 @@ class Menu(object):
         for button in self.buttons:
             button.process(screen)
 
-    def to_singleplayer(self):
-        self.next = SPC.state
+    # def to_singleplayer(self):
+    #     self.next = SPC.state
+    #     self.done = True
+    #     pass
+
+    def to_multiplayer(self):
+        self.next = MPC.state
         self.done = True
         pass
-
-    # def to_multiplayer(self):
-    #     pass
