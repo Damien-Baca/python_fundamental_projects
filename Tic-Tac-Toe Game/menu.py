@@ -1,34 +1,28 @@
-# Third party imports
 import pygame as pyg
-# Local imports
+
 from components import utils, colors
 from components.button import TextButton
-# from singleplayer import SinglePlayerChoice as SPC
-from multiplayer import MultiPlayerChoice as MPC
+from gamestates import MenuState, MultiPlayerChoiceState
 
 
 class Menu(object):
-    state = 'Main Menu'
-
     def __init__(self):
-        self.current = self.state
-        self.previous = None
         self.next = None
         self.done = False
         self.quit = False
-        self.buttons = []
+
+        self.current = MenuState
+        self.previous = None
         self.backgroundColor = colors.WHITE
+        self.buttons = []
 
     def startup(self, data=None):
-        # Title
-        titleText = "Tic-Tac-Toe"
-        titleFont = pyg.font.SysFont("Arial", 75)
-        self.titleArgs = [titleText, titleFont, 250, 75]
-        # Gamemode buttons
+        self.next = None
+        self.done = False
         buttonFont = pyg.font.SysFont("Arial", 30)
         # singlePlayerArgs = [
-        #     250, 200, 200, 100, self.to_singleplayer,
-        #     colors.DEFAULT_BUTTON, 'SinglePlayer', buttonFont
+        #     250, 200, 200, 100, self.to_singleplayer, colors.DEFAULT_BUTTON,
+        #     colors.BLACK, 'SinglePlayer', buttonFont
         # ]
         # self.buttons.append(TextButton(*singlePlayerArgs))
         multiPlayerArgs = [
@@ -48,10 +42,10 @@ class Menu(object):
 
     def draw(self, screen):
         screen.fill(self.backgroundColor)
-
-        surf, rect = utils.create_text(*self.titleArgs)
+        titleText = "Tic-Tac-Toe"
+        titleFont = pyg.font.SysFont("Arial", 75)
+        surf, rect = utils.create_text(titleText, titleFont, 250, 75)
         screen.blit(surf, rect)
-
         for button in self.buttons:
             button.process(screen)
 
@@ -61,6 +55,6 @@ class Menu(object):
     #     pass
 
     def to_multiplayer(self):
-        self.next = MPC.state
+        self.next = MultiPlayerChoiceState
         self.done = True
         pass

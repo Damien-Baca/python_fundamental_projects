@@ -1,10 +1,12 @@
 # Third party imports
 import pygame as pyg
-from pygame.locals import QUIT
 # Local imports
 from menu import Menu
-# from singleplayer import SinglePlayerChoice as SPC, SinglePlayer as SP
-from multiplayer import MultiPlayerChoice as MPC, Multiplayer as MP
+# from singleplayer import SinglePlayerChoice, SinglePlayer
+from multiplayer import MultiPlayerChoice, Multiplayer
+from victory import Victory
+from gamestates import \
+    MenuState, VictoryState, MultiPlayerChoiceState, MultiPlayerState
 
 
 class GameStateManager:
@@ -12,13 +14,13 @@ class GameStateManager:
     FPS = 60
     SCREEN_WIDTH = 500
     SCREEN_HEIGHT = 500
-    INITIAL_STATE = Menu.state
-    # INITIAL_STATE = SPC.state
+    INITIAL_STATE = MenuState
 
     STATES = {
-        Menu.state: Menu(),
-        MPC.state: MPC(),
-        MP.state: MP(),
+        MenuState: Menu(),
+        VictoryState: Victory(),
+        MultiPlayerChoiceState: MultiPlayerChoice(),
+        MultiPlayerState: Multiplayer(),
         # SP.state: SP(),
         # SPC.state: SPC()
     }
