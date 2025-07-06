@@ -141,6 +141,7 @@ The goal for this project is to implement a game of Tic-Tac-Toe using the pygame
 
 As an additional challenge:
 - Include a single-player mode that implements a rudimentary AI for the player to play against rather than another human player.
+  - Include three difficultie, Easy, Medium, and Hard
 
 ### Pseudo-code
 ```Python
